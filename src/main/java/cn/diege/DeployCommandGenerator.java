@@ -52,14 +52,11 @@ public class DeployCommandGenerator {
 
 		Map<String, MavenMeta> map = scanMaven("E:\\third_jars\\111");
 		for (MavenMeta meta : list) {
-
 			MavenMeta fileMeta = map.get(meta.key());
 			String deloyCommadFmt = "call mvn deploy:deploy-file -DgroupId=%s -DartifactId=%s -Dversion=%s -Dpackaging=jar -Dfile=%s -Durl=http://nexus.worldunion.com.cn:9005/nexus/content/repositories/releases -DrepositoryId=releases";
-		
 			String str = String.format(deloyCommadFmt, fileMeta.groupId,fileMeta.artifactId,fileMeta.version,fileMeta.filePath);
 			System.out.println(str);
 		}
-		
 		System.out.println("pause");
 	}
 	

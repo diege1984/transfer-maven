@@ -16,8 +16,7 @@ public class Scan {
 	Map<String, List<MavenMeta>> metaMaps = new HashMap<>();
 	Map<String, List<MavenMeta>> metaMaps2 = new HashMap<>();
 	List<String> noHope = new ArrayList<>();
-	
-	
+
 	public void scan(String... paths) {
 		List<String> noPoms = new ArrayList<>();
 		List<File> allList = new ArrayList<>();
@@ -82,8 +81,10 @@ public class Scan {
 			addMavenMeta2(meta);
 			// try {
 			// String pathFmt = "http://mvnrepository.com/artifact/%s/%s";
-			// URL url = new URL(String.format(pathFmt, meta.groupId, meta.artifactId));
-			// HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			// URL url = new URL(String.format(pathFmt, meta.groupId,
+			// meta.artifactId));
+			// HttpURLConnection conn = (HttpURLConnection)
+			// url.openConnection();
 			// conn.setConnectTimeout(5 * 1000);
 			// conn.setRequestMethod("GET");
 			// conn.connect();
@@ -112,7 +113,6 @@ public class Scan {
 		return meta;
 	}
 
-
 	private void addMavenMeta(MavenMeta meta) {
 		String key = meta.groupId + ":" + meta.artifactId;
 		List<MavenMeta> metaList = metaMaps.get(key);
@@ -122,7 +122,7 @@ public class Scan {
 		}
 		metaList.add(meta);
 	}
-	
+
 	private void addMavenMeta2(MavenMeta meta) {
 		String key = meta.groupId + ":" + meta.artifactId;
 		List<MavenMeta> metaList = metaMaps2.get(key);
@@ -132,7 +132,5 @@ public class Scan {
 		}
 		metaList.add(meta);
 	}
-
-
 
 }

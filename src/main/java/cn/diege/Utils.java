@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -100,5 +102,15 @@ public class Utils {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static String matchVersion(String fileName) {
+		Pattern p = Pattern.compile("[0-9]+((\\.|-)[0-9a-zA-Z]+)*");
+		Matcher m = p.matcher(fileName);
+		String text = null;
+		while (m.find()) {
+			text = m.group();
+		}
+		return text;
 	}
 }
